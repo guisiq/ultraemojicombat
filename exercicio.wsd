@@ -1,0 +1,45 @@
+@startuml teste 
+class Lutador{
+    - String: nome
+    - String: nacionalidade
+    - int: idade
+    - float: peso
+    - float: altura
+    - String: categoria
+    - int: vitorias
+    - int: derrotas
+    - int: empates
+
+    + status()
+    + ganlharLuta()
+    + perderLuta()
+    + empatarLuta()
+
+
+    + getNome()
+    + setNome()
+    + getNacionalidade()
+    + getIdade()
+    + setIdade()
+    + getPeso()
+    + setPeso()
+    + getaAtura()
+    + setaAtura()
+    + getCategoria()
+    + setCategoria()
+    + getVitorias()
+    + setVitorias()
+    + getDerrotas()
+    + setDerrotas()
+    + getEmpates()
+    + setEmpates()
+    
+}
+class Luta{
+
+}
+Evento *-- Luta
+Luta o-- Lutador
+Enpresa --> Lutador
+Enpresa --> Evento
+@enduml
