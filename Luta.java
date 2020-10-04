@@ -5,6 +5,8 @@
  */
 package ultraemojicombat;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Random;
 
 /**
@@ -12,12 +14,14 @@ import java.util.Random;
  * @author eolui
  */
 public class Luta {
+    //private Calendar dia;
     private Lutador desafiado;
     private Lutador desafiante;
     private int rounds;
     private boolean aprovada  ;
 
     public void marcarLuta(Lutador l1, Lutador l2){
+        
         if(l1.getCategoria().equals(l2.getCategoria()) && l1 != l2){
             this.aprovada=true;
             this.desafiante=l1;

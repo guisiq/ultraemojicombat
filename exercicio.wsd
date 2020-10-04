@@ -1,51 +1,44 @@
 @startuml teste 
 class Lutador{
-    - String: nome
-    - String: nacionalidade
-    - int: idade
-    - float: peso
-    - float: altura
-    - String: categoria
-    - int: vitorias
-    - int: derrotas
-    - int: empates
+    - nome: String
+    - nacionalidade: String
+    - idade: int   
+    - peso: float 
+    - altura: float 
+    - categoria: String
+    - vitorias: int   
+    - derrotas: int   
+    - empates: int   
 
     + status()
     + ganlharLuta()
     + perderLuta()
-    + empatarLuta()
-
-
-    + getNome()
-    + setNome()
-    + getNacionalidade()
-    + getIdade()
-    + setIdade()
-    + getPeso()
-    + setPeso()
-    + getaAtura()
-    + setaAtura()
-    + getCategoria()
-    + setCategoria()
-    + getVitorias()
-    + setVitorias()
-    + getDerrotas()
-    + setDerrotas()
-    + getEmpates()
-    + setEmpates()
-    
+    + empatarLuta()    
 }
 class Luta{
-    - Lutador: desafiante
-    - Lutador: desafiado
-    - int:     rounds
-    - boolean: aprovada
+    - desafiante: Lutador
+    - desafiado: Lutador
+    - rounds: int
+    - aprovada: boolean
 
     + void marcaLuta()
     + void lutar()
 }
-Evento *-- Luta
-Luta o-- Lutador
-Enpresa --> Lutador
-Enpresa --> Evento
+class Enpresa{
+    - Atuacao: String
+    - CNPJ:  String
+    - Nome: String
+    - NaturezaJuridica: String
+}
+class Evento{
+    Lutas: Luta[ ]
+    diaInicio: Calendar
+    diaFim:Calendar
+    Endereço:String
+}
+Evento *-- Luta: lutas
+Luta o-- Lutador: desafiado
+Luta o-- Lutador: desafiante
+Enpresa "n" --> "n" Lutador :patrocinio
+Enpresa "n" --> "n" Evento  :patrocinio
 @enduml
