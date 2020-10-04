@@ -36,7 +36,13 @@ class Lutador{
     
 }
 class Luta{
+    - Lutador: desafiante
+    - Lutador: desafiado
+    - int:     rounds
+    - boolean: aprovada
 
+    + void marcaLuta()
+    + void lutar()
 }
 Evento *-- Luta
 Luta o-- Lutador

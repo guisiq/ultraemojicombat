@@ -16,7 +16,7 @@ public class Luta {
     private Lutador desafiante;
     private int rounds;
     private boolean aprovada  ;
-    
+
     public void marcarLuta(Lutador l1, Lutador l2){
         if(l1.getCategoria().equals(l2.getCategoria()) && l1 != l2){
             this.aprovada=true;
@@ -30,7 +30,6 @@ public class Luta {
             this.desafiado=null;
         }
     }
-    
     
      public void lutar(){
        if(this.aprovada) {
