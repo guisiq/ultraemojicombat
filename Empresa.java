@@ -38,6 +38,19 @@ public class Empresa {
     public void setNaturezaJuridca(String naturezaJuridca) {
         this.naturezaJuridca = naturezaJuridca;
     }
+/**
+ * @param atuacao
+ * @param cNPJ
+ * @param nome
+ * @param naturezaJuridca "mei""ei""eirele""coperativa""binacionais"
+ */
+    public Empresa(String atuacao, String cNPJ, String nome, String naturezaJuridca) {
+        this.Atuacao = atuacao;
+        this.CNPJ = cNPJ;
+        this.nome = nome;
+        this.naturezaJuridca = naturezaJuridca;
+    }
      
 
 }
+ 

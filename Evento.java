@@ -1,6 +1,5 @@
 package ultraemojicombat;
 
-import java.util.List;
 import java.util.Scanner;
 
 /*IDEIA  PRINCIPLA:
@@ -16,7 +15,7 @@ public class Evento {
             new Lutador("UFOCobol", "Brasil", 37, 1.70f, 119.3f, 5, 4, 3),
             new Lutador("Nerdaart", "EUA", 30, 1.81f, 105.7f, 12, 2, 4) };
     // private static Empresa listapatrocinadores[];
-    private Empresa patrocinadores[];
+    private Empresa patrocinadores;
     private Luta[] lutas;
     private String nome;
     private String diaInicio;
@@ -24,10 +23,8 @@ public class Evento {
     private String endereco;
     // #endregion
 
-    public Evento(int quantidadePatrocinadores, String diaInicio, String diaFim, String nome) {
-
-        patrocinadores = new Empresa[quantidadePatrocinadores];
-
+    public Evento(String diaInicio, String diaFim, String nome) {
+        this.nome = nome;
         this.diaFim = diaFim;
         this.diaInicio = diaInicio;
     }
@@ -40,8 +37,7 @@ public class Evento {
 
     // INSTANCIA E DEFINE A QUANTIDADE DE LUTAS
     public void instanciarLutas(int quantidadeLutas) {
-        lutas = new Luta[quantidadeLutas];
-
+        this.lutas = new Luta[quantidadeLutas];
     }
 
     public void imprimirEvento(boolean conpleto, int indice) {
@@ -60,8 +56,15 @@ public class Evento {
     }
 
     public static void main(String[] args) {
+        Empresa[] patrocinadores = {
+            new Empresa("artirgos esportivos","85612423436564","DF esports","mei"),
+            new Empresa("suprementos ","85614426436664","palmas suprementos ","copetiva"),
+            new Empresa("academia","866146426436665","fit smart","eirele")
+        };
+        
         int funcao;
         int indice = 0;
+        
         Scanner leitor = new Scanner(System.in);
         System.out.println("qual o numero maximo de eventos ?");
         Evento[] eventos = new Evento[leitor.nextInt()];
@@ -69,7 +72,6 @@ public class Evento {
         do{
 
             System.out.println("selecione uma opcao ");
-            System.out.println("0- exit");
             System.out.println("1- criar evento");
             System.out.println("2- gerenciar eventos");
             funcao = leitor.nextInt();
@@ -86,18 +88,18 @@ public class Evento {
                         String diaInicio = leitor.nextLine();
                         System.out.println("qual o dia de fim do evento ");
                         String diaFim = leitor.nextLine();
-                        System.out.println("qual aquantidade de patrovinadores  ");
-                        int quantPratocinio = leitor.nextInt();
-                        eventos[indice] = new Evento(quantPratocinio, diaInicio, diaFim, nome);
+                        eventos[indice] = new Evento(diaInicio, diaFim, nome);
                         indice++;
                     }
                     break;
                 }
                 case 2: {
-                    int funcaoG;
+                   
                     System.out.println("=========GERENCIADOR DE EVENTOS========== ");
                     for (int i = 0; i < eventos.length; i++) {
+                        if ( eventos[i] != null){
                         eventos[i].imprimirEvento(false, i);
+                        }
                     }
                     System.out.println("== digite o indice do evento  ==");
                     int eventoindice = leitor.nextInt();
@@ -105,11 +107,11 @@ public class Evento {
 
                     // VARIAVEL QUE IRÁ RECEBER OS ENDEREÇO DO EVENTO ESCOLHIDO PARA GERENCIAMENTO
                     Evento eventoG = eventos[eventoindice];
-                    for (String c = "S"; c == "s" || c == "s" || c == "sim";) {
+                    for (String c = "S"; c == "S" || c == "s" || c == "sim";) {
                         System.out.println("=========OPÇÕES DE GERENCIAMENTO========== ");
                         System.out.println("0- DEFINIR QUANTIDADE DE LUTAS E SEUS PARTCIPANTES");
                         System.out.println("1- GERENCIAR PATROCINADORES");
-                        System.out.println("2-ALTERAR DADOS DO EVENTO");
+                        System.out.println("2-LUTAR");
                         System.out.println("");
                         System.out.println("Digite o numero da opção desejada:");
                         int opcao = leitor.nextInt();
@@ -117,9 +119,8 @@ public class Evento {
                         switch (opcao) {
                             case 0: {
 
-                                System.out.println(
-                                        "Digite a quantidade de lutas que o evento " + eventoG.getNome() + " terá:");
-                                int qtg = leitor.nextInt() - 1;
+                                System.out.println("Digite a quantidade de lutas que o evento " + eventoG.getNome() + " terá:");
+                                int qtg = leitor.nextInt() ;
                                 eventoG.instanciarLutas(qtg);
                                 for (int i = 0; i < eventoG.lutas.length; i++) {
                                     eventoG.apresentarLutadores();
@@ -128,22 +129,45 @@ public class Evento {
                                     System.out.println("Digite o indice do lutador Desafiado:");
                                     int desafiadoIndice = leitor.nextInt();
 
-                                    eventoG.lutas[i] = new Luta(lutadores[desafiadoIndice],
-                                            lutadores[desafianteIndice]);
+                                    eventoG.lutas[i] = new Luta(Evento.lutadores[desafiadoIndice],Evento.lutadores[desafianteIndice]);
+                                }
+                                        break;
+                            }
+                            case 1:{
+                                int g = 0 ;
+                                for(Empresa patrocinador    : patrocinadores){
+                                    System.out.println(g+ "-" + patrocinador.getNome());
+                                    g++;
+                                }
+                                System.out.println("Digite o numero do patrocinador do evento " +eventoG.nome);
+                                int patrocinadorIndice= leitor.nextInt();
+                                if(patrocinadores[patrocinadorIndice] != null){
+                                    eventoG.setPatrocinadores(patrocinadores[patrocinadorIndice]);
+                                    System.out.println("PATROCINADOR ALTERADO COM SUCESSO ");
+                                }else{
+                                    System.out.println("O VALOR INFORMADO NÃO É UM PATROCINADOR ");
                                 }
                                 break;
-
                             }
-
+                            case 2:{
+                                
+                                int a=0;
+                                for (Luta lutas : eventoG.lutas) {
+                                    System.out.println(a + " - "+lutas.getNome());
+                                    a++; 
+                                }           
+                                System.out.println("Digite o numero da luta que irá acontecer AGORAAAA!");   
+                                int indiceLuta= leitor.nextInt();
+                                eventoG.lutas[indiceLuta].lutar();
+                                break;
+                            }
                         }
                         System.out.println("Deseja ir ao Gerenciador de Opções novamente:");
                         c = leitor.next();
                     }
-
                 }
-            }
-
-        } while (funcao != 0);
+            }            
+        }while(funcao!=0);
     }
 
     // #region metodos gets e seters
@@ -181,11 +205,11 @@ public class Evento {
         this.endereco = endereco;
     }
 
-    public Empresa[] getPatrocinadores() {
+    public Empresa getPatrocinadores() {
         return patrocinadores;
     }
 
-    public void setPatrocinadores(Empresa[] patrocinadores) {
+    public void setPatrocinadores(Empresa patrocinadores) {
         this.patrocinadores = patrocinadores;
     }
 

@@ -7,6 +7,7 @@ package ultraemojicombat;
  */
 public class Lutador {
      //ATRIBUTOS
+     private Empresa Patrocinador;
      private String nome;
      private String nacionalidade;
      private int idade;
