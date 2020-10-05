@@ -1,44 +1,47 @@
-@startuml teste 
-class Lutador{
-    - nome: String
-    - nacionalidade: String
-    - idade: int   
-    - peso: float 
-    - altura: float 
-    - categoria: String
-    - vitorias: int   
-    - derrotas: int   
-    - empates: int   
+@startuml exercicio
+package  ultraemojicombat <<folder>>{
 
-    + status()
-    + ganlharLuta()
-    + perderLuta()
-    + empatarLuta()    
-}
-class Luta{
-    - desafiante: Lutador
-    - desafiado: Lutador
-    - rounds: int
-    - aprovada: boolean
+    class Lutador{
+        - nome: String
+        - nacionalidade: String
+        - idade: int   
+        - peso: float 
+        - altura: float 
+        - categoria: String
+        - vitorias: int   
+        - derrotas: int   
+        - empates: int   
 
-    + void marcaLuta()
-    + void lutar()
+        + status()
+        + ganlharLuta()
+        + perderLuta()
+        + empatarLuta()    
+    }
+    class Luta{
+        - desafiante: Lutador
+        - desafiado: Lutador
+        - rounds: int
+        - aprovada: boolean
+
+        + void marcaLuta()
+        + void lutar()
+    }
+    class Enpresa{
+        - Atuacao: String
+        - CNPJ:  String
+        - Nome: String
+        - NaturezaJuridica: String
+    }
+    class Evento{
+        Lutas: Luta[ ]
+        diaInicio: Calendar
+        diaFim:Calendar
+        Endereço:String
+    }
+    Evento *-- Luta: lutas
+    Luta o-- Lutador: desafiado
+    Luta o-- Lutador: desafiante
+    Enpresa "n" <-- "n" Lutador :patrocinio
+    Enpresa "n" <-- "n" Evento  :patrocinio
 }
-class Enpresa{
-    - Atuacao: String
-    - CNPJ:  String
-    - Nome: String
-    - NaturezaJuridica: String
-}
-class Evento{
-    Lutas: Luta[ ]
-    diaInicio: Calendar
-    diaFim:Calendar
-    Endereço:String
-}
-Evento *-- Luta: lutas
-Luta o-- Lutador: desafiado
-Luta o-- Lutador: desafiante
-Enpresa "n" --> "n" Lutador :patrocinio
-Enpresa "n" --> "n" Evento  :patrocinio
 @enduml

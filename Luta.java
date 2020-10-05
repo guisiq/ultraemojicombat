@@ -8,18 +8,28 @@ package ultraemojicombat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  *
  * @author eolui
  */
 public class Luta {
+    //#region atributos
     //private Calendar dia;
     private Lutador desafiado;
     private Lutador desafiante;
-    private int rounds;
+    private final int  rounds = 1;
     private boolean aprovada  ;
+    //#endregion
 
+    //DEFINE O VALOR DE SEUS  ATRIBUTOS
+
+    public Luta(Lutador desafiado, Lutador desafiante) {
+        this.desafiado = desafiado;
+        this.desafiante = desafiante;
+    }        
+        
     public void marcarLuta(Lutador l1, Lutador l2){
         
         if(l1.getCategoria().equals(l2.getCategoria()) && l1 != l2){
@@ -68,7 +78,7 @@ public class Luta {
            System.out.println("Essa luta não pode acontecer");
        }
     }
-
+//#region metodos gets e seters
     public Lutador getDesafiado() {
         return desafiado;
     }
@@ -89,10 +99,6 @@ public class Luta {
         return rounds;
     }
 
-    public void setRounds(int rounds) {
-        this.rounds = rounds;
-    }
-
     public boolean isAprovado() {
         return aprovada;
     }
@@ -100,6 +106,7 @@ public class Luta {
     public void setAprovado(boolean aprovado) {
         this.aprovada = aprovado;
     }
-     
+//#endregion     
+
     
 }
