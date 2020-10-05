@@ -24,7 +24,15 @@ public class Luta {
     //#endregion
 
     //DEFINE O VALOR DE SEUS  ATRIBUTOS
+    public void imprimirLuta(){
+        System.out.println("aprovada:"+(this.aprovada ? "aprovada":"reprovada"));
+        System.out.println("rounds:"+this.rounds);
+        System.out.print("desafiado");
+        this.desafiado.apresentar();
+        System.out.print("desafiante");
+        this.desafiante.apresentar();
 
+    }
     public Luta(Lutador desafiado, Lutador desafiante) {
         this.desafiado = desafiado;
         this.desafiante = desafiante;

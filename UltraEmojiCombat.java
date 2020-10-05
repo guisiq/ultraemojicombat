@@ -12,7 +12,7 @@ package ultraemojicombat;
 public class UltraEmojiCombat {
 
     /**
-     * @param args the command line arguments 
+     * @param args the command line arguments f
      */
     public static void main(String[] args) {
         // TODO code application logic 
