@@ -18,9 +18,7 @@ package  ultraemojicombat <<folder>>{
         + empatarLuta()    
     }
     class Luta{
-        - desafiante: Lutador
-        - desafiado: Lutador
-        - rounds: int
+        - rounds: final int
         - aprovada: boolean
 
         + void marcaLuta()
