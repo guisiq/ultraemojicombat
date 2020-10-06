@@ -41,7 +41,7 @@ public class Luta {
         this.imprimirLuta();
         
     }        
-     public String getNome (){
+    public String getNome (){
          return nome;
      }  
     public void marcarLuta(Lutador l1, Lutador l2){
@@ -57,8 +57,7 @@ public class Luta {
            
         }
     }
-    
-     public void lutar(){
+    public void lutar(){
        if(this.aprovada) {
            System.out.println("#######  DESAFIADO  ########");
            this.desafiado.apresentar();

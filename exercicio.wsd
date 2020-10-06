@@ -20,7 +20,8 @@ package  ultraemojicombat <<folder>>{
     class Luta{
         - rounds: final int
         - aprovada: boolean
-
+        - nome:String
+        + void imprimirLuta()
         + void marcaLuta()
         + void lutar()
     }
@@ -31,10 +32,14 @@ package  ultraemojicombat <<folder>>{
         - NaturezaJuridica: String
     }
     class Evento{
-        Lutas: Luta[ ]
-        diaInicio: Calendar
-        diaFim:Calendar
-        Endereço:String
+        - Lutas[ ]: Luta
+        - diaInicio: Calendar
+        - diaFim:Calendar
+        - Endereço:String
+        - static lutadore[] :lutador
+        + void apresentarLutadores()
+        + void imprimirEvento()
+        + void apresentarLutadores()
     }
     Evento *-- Luta: lutas
     Luta o-- Lutador: desafiado
