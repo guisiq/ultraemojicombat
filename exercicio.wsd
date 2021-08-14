@@ -31,6 +31,7 @@ package  ultraemojicombat <<folder>>{
         - Nome: String
         - NaturezaJuridica: String
         //outro comentario
+        //ramificacao da ramificacao
     }
     class Evento{
         //nao lembro se e asim que comenta 
