@@ -2,6 +2,7 @@
 package  ultraemojicombat <<folder>>{
 
     class Lutador{
+        //conflito 2.1
         - nome: String
         - nacionalidade: String
         - idade: int   
