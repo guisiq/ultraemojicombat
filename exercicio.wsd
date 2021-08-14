@@ -30,6 +30,8 @@ package  ultraemojicombat <<folder>>{
         - CNPJ:  String
         - Nome: String
         - NaturezaJuridica: String
+        //tal tal tal
+        //tal tal tal
     }
     class Evento{
         // eu quero conflito 
