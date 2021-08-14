@@ -3,6 +3,7 @@ package  ultraemojicombat <<folder>>{
 
     class Lutador{
         //conflito 2.1
+        //conflito 2
         - nome: String
         - nacionalidade: String
         - idade: int   
@@ -31,12 +32,11 @@ package  ultraemojicombat <<folder>>{
         - CNPJ:  String
         - Nome: String
         - NaturezaJuridica: String
-        //tal tal tal
-        //tal tal tal
+        //outro comentario
     }
     class Evento{
-        // eu quero conflito 
-        
+        //nao lembro se e asim que comenta 
+
         - Lutas[ ]: Luta
         - diaInicio: Calendar
         - diaFim:Calendar
