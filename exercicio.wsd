@@ -30,6 +30,7 @@ package  ultraemojicombat <<folder>>{
         - CNPJ:  String
         - Nome: String
         - NaturezaJuridica: String
+        //outro comentario
     }
     class Evento{
         //nao lembro se e asim que comenta 
