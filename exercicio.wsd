@@ -32,6 +32,8 @@ package  ultraemojicombat <<folder>>{
         - NaturezaJuridica: String
     }
     class Evento{
+        // eu quero conflito 
+        
         - Lutas[ ]: Luta
         - diaInicio: Calendar
         - diaFim:Calendar
